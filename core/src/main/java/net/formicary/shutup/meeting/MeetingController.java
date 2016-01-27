@@ -15,12 +15,38 @@ public class MeetingController {
   public @ResponseBody
   ResponseEntity createMeeting(@RequestParam(value = "host") String host){
     meeting = new Meeting(host);
-    return ResponseEntity.ok().build();
+    return ResponseEntity.ok(meeting);
+  }
+
+  @RequestMapping(method = RequestMethod.GET, path = "/api/host-connect")
+  public @ResponseBody
+  ResponseEntity hostConnect(){
+    if(meeting != null) {
+      return ResponseEntity.ok(meeting);
+    } else {
+      return ResponseEntity.noContent().build();
+    }
   }
 
   @RequestMapping(method = RequestMethod.POST, path = "/api/connect-meeting")
-  public Meeting clientConnect(@RequestParam(value = "userName") String userName, @RequestParam(value = "name") String meetingName){
-    meeting.getParticipants().add(userName);
-    return meeting;
+  public @ResponseBody
+  ResponseEntity clientConnect(@RequestParam(value = "userName") String userName){
+    if(meeting.getParticipants().containsKey(userName)) {
+      return ResponseEntity.badRequest().build();
+    } else {
+      meeting.getParticipants().put(userName, new Participant(userName));
+      return ResponseEntity.ok().build();
+    }
+  }
+
+  @RequestMapping(method = RequestMethod.POST, path = "/api/set-bored")
+  public @ResponseBody
+  ResponseEntity setBored(@RequestParam(value = "userName") String userName){
+    if(!meeting.getParticipants().containsKey(userName)) {
+      return ResponseEntity.badRequest().build();
+    } else {
+      meeting.getParticipants().get(userName).setBored(true);
+      return ResponseEntity.ok().build();
+    }
   }
 }

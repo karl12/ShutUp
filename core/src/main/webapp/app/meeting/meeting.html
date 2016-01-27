@@ -1,10 +1,21 @@
-<div class="container-fluid">
-  <div class="row">
-    <div>
-      <form novalidate class="simple-form">
-        Host: <input type="text" ng-model="meeting.hostName" /><br />
-        <input type="submit" ng-click="createMeeting(meeting)" value="Save" />
-      </form>
-    </div>
-  </div>
+<form class="form-signin" ng-show="!meeting">
+  <h2 class="form-signin-heading">Create/Connect to meeting</h2>
+  <label for="hostName" class="sr-only">Host Name</label>
+  <input type="text" id="hostName" class="form-control" placeholder="Host name" ng-model="newMeeting.hostName" required autofocus>
+  <button class="btn btn-lg btn-primary" type="submit" ng-click="connectHost()">Connect</button>
+  <button class="btn btn-lg btn-primary" type="submit" ng-click="createMeeting(newMeeting)">Create</button>
+</form>
+
+<div ng-show="meeting">
+  <table style="width:100%">
+    <th>{{meeting.host}}</th>
+    <tr ng-repeat="user in meeting.participants">
+      <td>{{user.name}}</td>
+      <td ng-class="user.bored ? 'bored' : 'not-bored'">{{user.bored}}</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>{{totalBored()}}</td>
+    </tr>
+  </table>
 </div>

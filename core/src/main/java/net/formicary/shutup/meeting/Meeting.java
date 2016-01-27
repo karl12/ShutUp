@@ -1,13 +1,14 @@
 package net.formicary.shutup.meeting;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class Meeting {
 
   private String host;
-
-  private List<String> participants = new ArrayList<>();
+  @JsonSerialize(using = MapAsListSerialiser.class)
+  private Map<String, Participant> participants = new HashMap<>();
 
   public Meeting() {
   }
@@ -23,11 +24,12 @@ public class Meeting {
   public void setHost(String host) {
     this.host = host;
   }
-  public List<String> getParticipants() {
+
+  public Map<String, Participant> getParticipants() {
     return participants;
   }
 
-  public void setParticipants(List<String> participants) {
+  public void setParticipants(Map<String, Participant> participants) {
     this.participants = participants;
   }
 }
