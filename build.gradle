@@ -1,0 +1,21 @@
+allprojects {
+	apply plugin: 'java'
+	apply plugin: 'idea'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+description = ''
+version = '0.1'
+
+subprojects {
+	repositories {
+		mavenLocal()
+		maven { url "http://repo1.maven.org/maven2" }
+	}
+}
+
+dependencies {
+	//testCompile("org.testng:testng:$testNgVersion")
+	//testCompile("org.mockito:mockito-core:$mockitoVersion")
+}

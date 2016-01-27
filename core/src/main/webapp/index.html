@@ -1,0 +1,47 @@
+<html ng-app="saveme">
+<head>
+
+  <link rel="stylesheet" href="webjars/bootstrap/3.3.6/css/bootstrap.css">
+  <link rel="stylesheet" href="webjars/ui-grid/3.0.7/ui-grid.min.css">
+  <link rel="stylesheet" href="resources/css/dashboard.css">
+
+</head>
+<body>
+
+
+<div saveme-navigation></div>
+<div ng-view id="swap-content">
+
+</div>
+
+<!--error handler-->
+<div id="messageContainer" ng-controller="MessageCtrl">
+  <div alert ng-repeat="msg in messages" type="{{msg.severity}}" close="closeMsg($index)" dismiss-on-timeout='5000'
+       ng-animate="{enter: 'fade in', leave: 'fade out'}">
+  </div>
+</div>
+
+<!--libraries-->
+<script type="text/javascript" src="webjars/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/angularjs/1.4.8/angular.js"></script>
+<script type="text/javascript" src="webjars/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>
+<script type="text/javascript" src="webjars/angularjs/1.4.8/angular-route.js"></script>
+<script type="text/javascript" src="webjars/angularjs/1.4.8/angular-animate.js"></script>
+<script type="text/javascript" src="webjars/momentjs/2.10.6/min/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="webjars/ui-grid/3.0.7/ui-grid.min.js"></script>
+
+<!--application-->
+<script src="app/app.module.js"></script>
+<script src="app/app.routes.js"></script>
+<script src="app/message/messageController.js"></script>
+<script src="app/message/messageService.js"></script>
+<script src="app/meeting/meetingController.js"></script>
+<script src="app/meeting/meetingService.js"></script>
+<script src="app/meeting/accountCreationController.js"></script>
+<script src="app/filters/dates.js"></script>
+
+<!--directives-->
+<script src="app/navigation/navigationDirective.js"></script>
+
+</body>
+</html>
