@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+  <TextView
+    android:id="@+id/name_label"
+    android:text="@string/name_label"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+  <TextView
+    android:id="@+id/host_label"
+    android:text="@string/host_label"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="25dp"
+    android:layout_below="@+id/name_label"
+    android:layout_alignParentLeft="true" />
+
+  <EditText
+    android:id="@+id/name_value"
+    android:text="@string/name_label"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_toRightOf="@+id/name_label"
+    android:layout_marginLeft="80dp"
+    android:inputType="textPersonName"/>
+
+  <EditText
+    android:id="@+id/host_value"
+    android:text="@string/host_label"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/host_label"
+    android:layout_alignLeft="@+id/name_value"
+    android:inputType="text"/>
+
+  <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/join_button"
+    android:id="@+id/join_button"
+    android:layout_below="@+id/host_value"
+    android:layout_toEndOf="@+id/host_label"
+    android:layout_marginTop="33dp"/>
+
+</RelativeLayout>
+

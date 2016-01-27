@@ -19,7 +19,7 @@ public class MeetingController {
   }
 
   @RequestMapping(method = RequestMethod.POST, path = "/api/connect-meeting")
-  public Meeting clientConnect(@RequestParam(value = "userName") String userName, @RequestParam(value = "name") String meetingName){
+  public Meeting clientConnect(@RequestParam(value = "userName") String userName){
     meeting.getParticipants().add(userName);
     return meeting;
   }
