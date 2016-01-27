@@ -9,3 +9,7 @@
 core/build
 *.iml
 out
+ShutUpAndroid/local.properties
+ShutupAndroid/bin/
+ShutupAndroid/gen/
+ShutupAndroid/build/
