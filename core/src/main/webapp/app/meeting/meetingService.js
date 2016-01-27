@@ -2,11 +2,12 @@ app.factory('MeetingService', ['$http',
   function ($http) {
     return {
 
-      createMeeting: function(hostName, meetingName) {
-        var url = "/api/create-meeting";
-        return $http.post(url, {
-          host: hostName,
-          name: meetingName
+      createMeeting: function(hostName) {
+        return $http({
+          url: '/api/create-meeting',
+          method: "POST",
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          data: $.param({'host' : hostName})
         });
       }
     }
