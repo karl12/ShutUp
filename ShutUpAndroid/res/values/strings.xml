@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">ShutUpAndroid</string>
+  <string name="red_button_text">I like this :)</string>
+  <string name="green_button_text">Shut Up!</string>
 </resources>
