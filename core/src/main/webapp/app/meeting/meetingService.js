@@ -4,9 +4,9 @@ app.factory('MeetingService', ['$http',
 
       createMeeting: function(hostName, meetingName) {
         var url = "/api/create-meeting";
-        return $http.post(url,{
-          hostName: hostName,
-          meetingName: meetingName
+        return $http.post(url, {
+          host: hostName,
+          name: meetingName
         });
       }
     }
