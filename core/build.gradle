@@ -4,6 +4,7 @@ buildscript {
   }
   repositories {
     mavenCentral()
+    jcenter()
   }
   dependencies {
     classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -11,37 +12,60 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'war'
 
 jar {
   baseName = 'shutup'
   version = '0.0.1-SNAPSHOT'
 }
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 repositories {
   mavenCentral()
+  jcenter()
 }
 
 
 dependencies {
-  compile('org.springframework.boot:spring-boot-starter-data-jpa')
-  compile('org.springframework.boot:spring-boot-starter-web')
-  runtime('org.apache.derby:derby')
-  testCompile('org.springframework.boot:spring-boot-starter-test')
-}
+  //spring
+  compile("org.springframework:spring-webmvc:${springVersion}")
+  compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+  compile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+  compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
 
 
-eclipse {
-  classpath {
-    containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-    containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-  }
+  //database
+  compile('org.apache.derby:derby')
+  //compile("org.flywaydb:flyway-core:${flywayVersion}")
+
+  //logging
+  compile("org.slf4j:slf4j-api:$slf4jVersion")
+  compile("ch.qos.logback:logback-core:$logbackVersion")
+  compile("ch.qos.logback:logback-classic:$logbackVersion")
+
+  //utility
+  compile("com.google.guava:guava:$guavaVersion")
+  compile("javax.inject:javax.inject:1")
+
+  //web
+  compile("org.webjars:jquery:2.2.0")
+  compile("org.webjars:angularjs:1.4.8")
+  compile("org.webjars:angular-ui-bootstrap:1.0.3")
+  compile("org.webjars:bootstrap:3.3.6")
+
+  //test
+  testCompile("org.testng:testng:$testNgVersion")
+  testCompile("org.mockito:mockito-core:$mockitoVersion")
+  testCompile('junit:junit:4.12')
+
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.9'
+  gradleVersion = '2.10'
 }
+
+war.archiveName = 'root.war'
+test.useTestNG()

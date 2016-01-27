@@ -1,0 +1,11 @@
+ext {
+  logbackLoglevel = "DEBUG"
+}
+
+processResources {
+  filesMatching('**/logback.xml') {
+    filter {
+      it.replace('${logback.loglevel}', logbackLoglevel)
+    }
+  }
+}
