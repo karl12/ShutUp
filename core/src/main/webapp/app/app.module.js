@@ -1,9 +1,10 @@
-var app = angular.module('saveme',
+'use strict';
+
+var app = angular.module('shutup',
     [
       'ngRoute',
       'ui.bootstrap',
-      'ui.bootstrap.tpls',
-      'ui.grid'
+      'ui.bootstrap.tpls'
     ]);
 
 app.run(['$rootScope', 'MessageService',

@@ -1,24 +1,13 @@
-app.factory('AccountService', ['$http',
+app.factory('MeetingService', ['$http',
   function ($http) {
     return {
 
-      getAllAccountDetails: function() {
-        var url = "/api/all-accounts";
-        return $http.get(url);
-      },
-
-      getAccount: function(accountName) {
-        var url = "/api/account?name=" + accountName;
-        return $http.get(url);
-      },
-
-      addAccount: function(account) {
-        var url = "/api/add-account?name=" + account.name
-            + "&bank=" + account.bank
-            + "&lowerLimit=" + account.lowerLimit
-            + "&type=" + account.accountType
-            + "&currency=" + account.currency;
-        return $http.post(url);
+      createMeeting: function(hostName, meetingName) {
+        var url = "/api/create-meeting";
+        return $http.post(url,{
+          hostName: hostName,
+          meetingName: meetingName
+        });
       }
     }
   }
