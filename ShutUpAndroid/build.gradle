@@ -23,6 +23,10 @@ android {
     versionName "1.0"
   }
 
+  lintOptions {
+    abortOnError false
+  }
+
   sourceSets {
     main {
       manifest.srcFile 'AndroidManifest.xml'
@@ -35,11 +39,20 @@ android {
     }
   }
 
+  packagingOptions {
+    exclude 'META-INF/license.txt'
+    exclude 'META-INF/notice.txt'
+  }
 }
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
   compile 'com.android.support:appcompat-v7:23.1.1'
+  compile('org.simpleframework:simple-xml:2.7.+'){
+    exclude module: 'stax'
+    exclude module: 'stax-api'
+    exclude module: 'xpp3'
+  }
   compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
   testCompile('junit:junit:4.12')
 }
