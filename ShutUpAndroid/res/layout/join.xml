@@ -45,7 +45,7 @@
     android:layout_below="@+id/host_value"
     android:layout_toEndOf="@+id/host_label"
     android:layout_marginTop="33dp"
-    android:onClick="joinMeeting"/>
+    android:onClick="clientConnect"/>
 
 </RelativeLayout>
 

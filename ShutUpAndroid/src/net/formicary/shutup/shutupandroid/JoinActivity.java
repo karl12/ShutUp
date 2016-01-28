@@ -27,7 +27,7 @@ public class JoinActivity extends Activity {
     setContentView(R.layout.join);
   }
 
-  public void joinMeeting(View view) {
+  public void clientConnect(View view) {
 
     EditText host = (EditText)findViewById(R.id.host_value);
     EditText name = (EditText)findViewById(R.id.name_value);
@@ -35,46 +35,28 @@ public class JoinActivity extends Activity {
     String hostValue = HTTP + host.getText().toString() + JOIN_URL;
     String nameValue = name.getText().toString();
 
-    new HttpRequestTask(nameValue, hostValue).execute();
+    new ConnectHttpRequest(nameValue, hostValue).execute();
   }
 
-  private class HttpRequestTask extends AsyncTask<Void, Void, ResponseEntity> {
+  private class ConnectHttpRequest extends HttpRequestTask {
 
     private final String name;
     private final String host;
 
-    public HttpRequestTask(String name, String host) {
-      super();
+    public ConnectHttpRequest(String name, String host) {
+      super(name, host);
       this.name = name;
       this.host = host;
-    }
-
-    @Override
-    @Nullable
-    protected ResponseEntity doInBackground(Void... params) {
-      try {
-        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-        map.add("userName", name);
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
-
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
-        restTemplate.getMessageConverters().add(new FormHttpMessageConverter());
-
-        ResponseEntity response = restTemplate.postForEntity(host, request, ResponseEntity.class);
-        return response;
-      } catch(Exception e) {
-        Log.e("JoinActivity", e.getMessage(), e);
-      }
-      return null;
     }
 
     @Override
     protected void onPostExecute(ResponseEntity response) {
       if(response != null && response.getStatusCode().name() == "OK") {
         Intent i = new Intent(getApplicationContext(), VoteActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("userName", name);
+        bundle.putString("host", host);
+        i.putExtras(bundle);
         startActivity(i);
       } else {
         Toast.makeText(getApplicationContext(), "Login failed. Username already in use.", Toast.LENGTH_SHORT).show();

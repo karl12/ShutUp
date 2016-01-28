@@ -3,24 +3,6 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
-  <LinearLayout
-    android:layout_weight="1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <Button
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:text="@string/green_button_text"
-      android:id="@+id/greenButton"
-      android:layout_alignParentTop="true"
-      android:layout_alignParentEnd="true"
-      android:layout_alignParentStart="true"
-      android:background="#1f9020"/>
-  </LinearLayout>
-  <LinearLayout
-    android:layout_weight="1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
     <Button
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
@@ -29,7 +11,7 @@
       android:layout_alignParentTop="true"
       android:layout_alignParentStart="true"
       android:layout_alignParentEnd="true"
-      android:background="#ae1b1b"/>
-  </LinearLayout>
+      android:background="#ae1b1b"
+      android:onClick="setBored"/>
 </LinearLayout>
 
