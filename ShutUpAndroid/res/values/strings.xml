@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">ShutUpAndroid</string>
-  <string name="red_button_text">I like this :)</string>
-  <string name="green_button_text">Shut Up!</string>
+  <string name="red_button_text">Shut Up!</string>
+  <string name="green_button_text">I like this :)</string>
   <string name="name_label">Name</string>
   <string name="host_label">Host</string>
+  <string name="host_value">10.0.2.2:8083</string>
   <string name="join_button">Join meeting</string>
 </resources>
