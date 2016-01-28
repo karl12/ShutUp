@@ -8,6 +8,11 @@ public class Participant {
     this.name = name;
   }
 
+  public Participant(String name, boolean isBored) {
+    this.name = name;
+    this.isBored = isBored;
+  }
+
   public String getName() {
     return name;
   }

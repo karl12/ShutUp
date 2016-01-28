@@ -9,7 +9,7 @@ public class Meeting {
 
   private String host;
   @JsonSerialize(using = MapAsListSerialiser.class)
-  @JsonDeserialize(using = ListAsMapDeSerialiser.class)
+  @JsonDeserialize(using = ListAsMapDeserialiser.class)
   private Map<String, Participant> participants = new HashMap<>();
 
   public Meeting() {
