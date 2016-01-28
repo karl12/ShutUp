@@ -2,3 +2,4 @@ rootProject.name = 'ShutUp'
 
 include 'core'
 include 'ShutUpAndroid'
+include 'common'

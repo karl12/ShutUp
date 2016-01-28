@@ -5,22 +5,32 @@
   <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="createMeeting(newMeeting)">Create</button>
 </form>
 
-<div ng-show="meeting" class="container-fluid">
+<div ng-show="meeting">
+    <h1 id="title">{{meeting.host}}</h1>
+  <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4 col">
+    <div class="col-md-2 col">
       <table class="table">
         <th>{{meeting.host}}</th>
         <tr ng-repeat="user in meeting.participants">
           <td>{{user.name}}</td>
         </tr>
       </table>
-      <button class="btn btn-lg btn-primary" type="submit" ng-click="resetBored()">Moving on!</button>
     </div>
-      <div class="col-md-4 col">
-        <uib-progressbar class="progress-striped active shutup-progress" value="value" type="{{type}}"/>
-      </div>
-    <div class="col-md-4" col>
+    <div class="col-md-4 col-md-offset-3 col">
       <div ng-class="type">{{message}}</div>
     </div>
     </div>
+  <div class="row">
+    <div class="col-md-12 col">
+      Bored-o-meter
+      <uib-progressbar class="progress-striped active shutup-progress" value="value" type="{{type}}"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 col-md-offset-10">
+      <button class="btn btn-lg btn-primary" type="submit" ng-click="resetBored()">Moving on!</button>
+    </div>
+  </div>
+  </div>
 </div>

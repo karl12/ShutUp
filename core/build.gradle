@@ -30,6 +30,9 @@ repositories {
 
 
 dependencies {
+
+  compile project(':common')
+
   //spring
   compile("org.springframework:spring-webmvc:${springVersion}")
   compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")

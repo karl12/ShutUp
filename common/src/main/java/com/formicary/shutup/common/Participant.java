@@ -1,4 +1,4 @@
-package net.formicary.shutup.meeting;
+package com.formicary.shutup.common;
 
 public class Participant {
   private String name;

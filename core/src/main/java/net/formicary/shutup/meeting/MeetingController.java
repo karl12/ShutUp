@@ -3,7 +3,8 @@ package net.formicary.shutup.meeting;
 import java.util.Map;
 import javax.inject.Singleton;
 
-import org.springframework.http.HttpHeaders;
+import com.formicary.shutup.common.Meeting;
+import com.formicary.shutup.common.Participant;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

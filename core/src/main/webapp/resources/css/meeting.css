@@ -1,19 +1,15 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
 }
 
 html, body{
   height: 100%;
 }
 
-.container {
-  padding: 20%;
-  min-height: 100%;
-  overflow: hidden;
-  margin-top: 10%;
-
+#title {
+  text-align: center;
+  font-size: 80px;
 }
 
 .form-signin {
@@ -51,6 +47,17 @@ html, body{
   border-top-right-radius: 0;
 }
 
+.container-fluid{
+  margin: 10px;
+  border-style: solid;
+  background-color: #eee;
+  padding: 50px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 25px;
+}
+
 .not-bored {
   background: green;
 }
@@ -59,8 +66,7 @@ html, body{
 }
 
 .shutup-progress {
-  height: 30%;
-  -webkit-transform: rotate(-90deg);
+  height: 10%;
 }
 
 div.success {
@@ -71,13 +77,13 @@ div.success {
 
 div.info {
   font-family: "Comic Sans MS", serif;
-  font-size: 70pt;
+  font-size: 50pt;
   color: blue;
 }
 
 div.warning {
   font-family: "Comic Sans MS", serif;
-  font-size: 80pt;
+  font-size: 50pt;
   color: orange;
 }
 
