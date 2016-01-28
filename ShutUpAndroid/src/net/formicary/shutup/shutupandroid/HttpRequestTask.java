@@ -1,9 +1,9 @@
 package net.formicary.shutup.shutupandroid;
 
+import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import org.springframework.http.*;
-import android.os.AsyncTask;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
@@ -38,7 +38,7 @@ public abstract class HttpRequestTask extends AsyncTask<Void, Void, ResponseEnti
       ResponseEntity response = restTemplate.postForEntity(host, request, ResponseEntity.class);
       return response;
     } catch(Exception e) {
-      Log.e("JoinActivity", e.getMessage(), e);
+      Log.e("Activity Exception", e.getMessage(), e);
     }
     return null;
   }

@@ -11,6 +11,9 @@ public class VoteActivity  extends Activity {
   private String userName;
   private String host;
 
+  private final String JOIN_URL = "connect-meeting";
+  private final String VOTE_URL = "set-bored";
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -19,7 +22,7 @@ public class VoteActivity  extends Activity {
     Bundle b = getIntent().getExtras();
     if(b != null){
       userName = b.getString("userName");
-      host = b.getString("host").replace("connect-meeting", "set-bored");
+      host = b.getString("host").replace(JOIN_URL, VOTE_URL);
     }
   }
 
