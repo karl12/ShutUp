@@ -3,15 +3,39 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
-    <Button
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:text="@string/red_button_text"
-      android:id="@+id/redButton"
-      android:layout_alignParentTop="true"
-      android:layout_alignParentStart="true"
-      android:layout_alignParentEnd="true"
-      android:background="#ae1b1b"
-      android:onClick="setBored"/>
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" android:layout_gravity="center_horizontal" android:background="#5f5f5f">
+        <Button
+          android:layout_width="fill_parent"
+          android:layout_height="200dp"
+          android:text="@string/red_button_text"
+          android:id="@+id/redButton"
+          android:background="#010000"
+          android:onClick="setBored"
+          android:layout_alignParentStart="true" android:layout_alignParentTop="true"
+          android:layout_above="@+id/progressBar"/>
+        <ProgressBar
+          style="?android:attr/progressBarStyleLarge"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/progressBar"
+          android:background="#24519a"
+          android:layout_alignParentBottom="true"
+          android:layout_alignParentStart="true"
+          android:layout_marginBottom="54dp"
+          android:layout_alignParentEnd="true"/>
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/progressText"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="28dp"
+        android:layout_alignParentEnd="true"
+        android:textColor="#ffffff"/>
+    </RelativeLayout>
 </LinearLayout>
 

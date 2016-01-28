@@ -1,4 +1,4 @@
-package net.formicary.shutup.shutupandroid;
+package net.formicary.shutup.shutupandroid.httprequests;
 
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
@@ -38,7 +38,7 @@ public abstract class HttpRequestTask extends AsyncTask<Void, Void, ResponseEnti
       ResponseEntity response = restTemplate.postForEntity(host, request, ResponseEntity.class);
       return response;
     } catch(Exception e) {
-      Log.e("Activity Exception", e.getMessage(), e);
+      Log.e("Http Request Exception", e.getMessage(), e);
     }
     return null;
   }

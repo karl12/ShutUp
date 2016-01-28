@@ -2,12 +2,14 @@ package com.formicary.shutup.common;
 
 import java.util.*;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class Meeting {
 
   private String host;
   @JsonSerialize(using = MapAsListSerialiser.class)
+  @JsonDeserialize(using = ListAsMapDeSerialiser.class)
   private Map<String, Participant> participants = new HashMap<>();
 
   public Meeting() {
