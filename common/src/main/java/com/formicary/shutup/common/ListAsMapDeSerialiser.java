@@ -17,8 +17,8 @@ public class ListAsMapDeserialiser extends JsonDeserializer {
     ObjectCodec oc = jsonParser.getCodec();
     JsonNode node = oc.readTree(jsonParser);
     Map<String, Participant> participants = new HashMap<>();
-    for(JsonNode nodeelement : node) {
-      Participant participant = new Participant(nodeelement.get("name").textValue(), nodeelement.get("bored").booleanValue());
+    for(JsonNode nodeElement : node) {
+      Participant participant = new Participant(nodeElement.get("name").textValue(), nodeElement.get("bored").booleanValue());
       participants.put(participant.getName(), participant);
     }
     return participants;
