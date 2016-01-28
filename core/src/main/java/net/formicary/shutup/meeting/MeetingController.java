@@ -1,7 +1,9 @@
 package net.formicary.shutup.meeting;
 
+import java.util.Map;
 import javax.inject.Singleton;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,5 +50,14 @@ public class MeetingController {
       meeting.getParticipants().get(userName).setBored(true);
       return ResponseEntity.ok().build();
     }
+  }
+
+  @RequestMapping(method = RequestMethod.POST, path = "/api/reset-bored")
+  public @ResponseBody
+  ResponseEntity resetScores(){
+    for(Map.Entry<String, Participant> entry : meeting.getParticipants().entrySet()) {
+      entry.getValue().setBored(false);
+    }
+    return ResponseEntity.ok().build();
   }
 }

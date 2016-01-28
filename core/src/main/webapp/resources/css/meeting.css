@@ -45,3 +45,8 @@ body {
 .bored {
   background: red;
 }
+
+.shutup-progress {
+  height: 30%;
+  -webkit-transform: rotate(-90deg);
+}

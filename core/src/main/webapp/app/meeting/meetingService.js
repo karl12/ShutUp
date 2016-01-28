@@ -1,6 +1,12 @@
 app.factory('MeetingService', ['$http',
   function ($http) {
     return {
+      resetBored: function(){
+        return $http({
+          url: '/api/reset-bored',
+          method: "POST"
+        })
+      },
 
       refresh: function() {
         return $http.get('api/host-connect');

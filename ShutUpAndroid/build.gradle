@@ -1,6 +1,7 @@
 buildscript {
   repositories {
     jcenter()
+    maven { url 'C/:/Users/scottk/AppData/Local/Android/android-sdk/extras/android/m2repository' }
   }
 
   dependencies {
@@ -56,6 +57,7 @@ dependencies {
     exclude module: 'stax-api'
     exclude module: 'xpp3'
   }
+  compile 'com.android.support:support-annotations:23.1.1'
   compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
   testCompile('junit:junit:4.12')
 }

@@ -2,20 +2,27 @@
   <h2 class="form-signin-heading">Create/Connect to meeting</h2>
   <label for="hostName" class="sr-only">Host Name</label>
   <input type="text" id="hostName" class="form-control" placeholder="Host name" ng-model="newMeeting.hostName" required autofocus>
-  <button class="btn btn-lg btn-primary" type="submit" ng-click="connectHost()">Connect</button>
-  <button class="btn btn-lg btn-primary" type="submit" ng-click="createMeeting(newMeeting)">Create</button>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="createMeeting(newMeeting)">Create</button>
 </form>
 
-<div ng-show="meeting">
-  <table style="width:100%">
-    <th>{{meeting.host}}</th>
-    <tr ng-repeat="user in meeting.participants">
-      <td>{{user.name}}</td>
-      <td ng-class="user.bored ? 'bored' : 'not-bored'">{{user.bored}}</td>
-    </tr>
-    <tr>
-      <td>Total</td>
-      <td>{{totalBored()}}</td>
-    </tr>
-  </table>
+<div ng-show="meeting" class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table">
+        <th>{{meeting.host}}</th>
+        <tr ng-repeat="user in meeting.participants">
+          <td>{{user.name}}</td>
+        </tr>
+      </table>
+    </div>
+      <div class="col-md-4">
+        <uib-progressbar class="progress-striped active shutup-progress" value="value" type="{{type}}"/>
+      </div>
+    <div class="col-md-4">
+      <div ng-class="">{{message}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-lg btn-primary" type="submit" ng-click="resetBored()">Moving on!</button>
+  </div>
 </div>
