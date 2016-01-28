@@ -4,6 +4,18 @@ body {
   background-color: #eee;
 }
 
+html, body{
+  height: 100%;
+}
+
+.container {
+  padding: 20%;
+  min-height: 100%;
+  overflow: hidden;
+  margin-top: 10%;
+
+}
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -49,4 +61,28 @@ body {
 .shutup-progress {
   height: 30%;
   -webkit-transform: rotate(-90deg);
+}
+
+div.success {
+  font-family: "Comic Sans MS", serif;
+  font-size: 100pt;
+  color: green;
+}
+
+div.info {
+  font-family: "Comic Sans MS", serif;
+  font-size: 70pt;
+  color: blue;
+}
+
+div.warning {
+  font-family: "Comic Sans MS", serif;
+  font-size: 80pt;
+  color: orange;
+}
+
+div.danger {
+  font-family: "Comic Sans MS", serif;
+  font-size: 80pt;
+  color: red;
 }

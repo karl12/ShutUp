@@ -2,6 +2,7 @@ app.controller('MeetingCtrl', ['$scope', '$uibModal', '$interval', '$timeout', '
   function ($scope, $uibModal, $interval, $timeout, MeetingService) {
     $scope.value = 0;
     $scope.message = "Lets Begin!";
+    $scope.type = 'success';
 
     $scope.createMeeting = function(meeting) {
       MeetingService.createMeeting(meeting.hostName).success(function(meeting){
@@ -23,7 +24,7 @@ app.controller('MeetingCtrl', ['$scope', '$uibModal', '$interval', '$timeout', '
           $scope.message = "Yes, go on.";
         } else if ($scope.value < 50) {
           $scope.type = 'info';
-          $scope.message = "What are you talking?";
+          $scope.message = "What are you talking about?";
         } else if ($scope.value < 75) {
           $scope.type = 'warning';
           $scope.message = "Why are you still talking about this?";

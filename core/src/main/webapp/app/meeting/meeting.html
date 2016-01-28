@@ -7,22 +7,20 @@
 
 <div ng-show="meeting" class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 col">
       <table class="table">
         <th>{{meeting.host}}</th>
         <tr ng-repeat="user in meeting.participants">
           <td>{{user.name}}</td>
         </tr>
       </table>
+      <button class="btn btn-lg btn-primary" type="submit" ng-click="resetBored()">Moving on!</button>
     </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col">
         <uib-progressbar class="progress-striped active shutup-progress" value="value" type="{{type}}"/>
       </div>
-    <div class="col-md-4">
-      <div ng-class="">{{message}}</div>
+    <div class="col-md-4" col>
+      <div ng-class="type">{{message}}</div>
     </div>
-  </div>
-  <div class="row">
-    <button class="btn btn-lg btn-primary" type="submit" ng-click="resetBored()">Moving on!</button>
-  </div>
+    </div>
 </div>
