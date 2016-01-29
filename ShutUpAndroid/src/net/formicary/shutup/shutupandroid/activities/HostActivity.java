@@ -71,7 +71,7 @@ public class HostActivity extends Activity {
   }
 
   public void setSpeaker(View view) {
-    Spinner spinner = (Spinner)view;
+    Spinner spinner = (Spinner) findViewById(R.id.spinner);
     String selected = spinner.getSelectedItem().toString();
     new SetSpeakerHttpRequestTask(selected, host.replace(VOTE_URL, SET_SPEAKER_URL)).execute();
   }

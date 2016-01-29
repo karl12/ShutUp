@@ -29,7 +29,7 @@ public class SetSpeakerHttpRequestTask extends AsyncTask<Void, Void, ResponseEnt
       map.add("name", name);
       HttpHeaders headers = new HttpHeaders();
       headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-      HttpEntity<String> request = new HttpEntity<>(headers);
+      HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
 
       RestTemplate restTemplate = new RestTemplate();
       restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
