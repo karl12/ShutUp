@@ -1,5 +1,5 @@
-app.controller('MeetingCtrl', ['$scope', '$interval', '$timeout', 'MeetingService',
-  function ($scope, $interval, $timeout, MeetingService) {
+app.controller('MeetingCtrl', ['$scope', '$interval', '$timeout', '$location', 'MeetingService',
+  function ($scope, $interval, $timeout, $location, MeetingService) {
     $scope.value = 0;
     $scope.message = "Lets Begin!";
     $scope.type = 'success';
@@ -48,6 +48,10 @@ app.controller('MeetingCtrl', ['$scope', '$interval', '$timeout', 'MeetingServic
     $scope.showBar = function(){
       $scope.showBarStatus = !$scope.showBarStatus;
       $scope.showBarText = $scope.showBarStatus ? "Hide bar" : "Show bar";
+    };
+
+    $scope.endMeeting = function(){
+      $location.path('/results');
     };
 
     $interval(function () {
