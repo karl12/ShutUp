@@ -23,12 +23,24 @@ public class MeetingController {
   }
 
   @RequestMapping(method = RequestMethod.GET, path = "/api/host-connect")
-  public @ResponseBody
-  ResponseEntity hostConnect(){
+  public
+  @ResponseBody
+  ResponseEntity hostConnect(@RequestParam(value = "userName") String userName) {
+    if(meeting != null && meeting.getHost().getName().equals(userName)) {
+      return ResponseEntity.ok(meeting);
+    } else {
+      return ResponseEntity.badRequest().build();
+    }
+  }
+
+  @RequestMapping(method = RequestMethod.GET, path = "/api/refresh")
+  public
+  @ResponseBody
+  ResponseEntity refresh() {
     if(meeting != null) {
       return ResponseEntity.ok(meeting);
     } else {
-      return ResponseEntity.noContent().build();
+      return ResponseEntity.badRequest().build();
     }
   }
 
