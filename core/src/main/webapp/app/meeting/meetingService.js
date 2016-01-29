@@ -9,7 +9,7 @@ app.factory('MeetingService', ['$http',
       },
 
       refresh: function() {
-        return $http.get('api/host-connect');
+        return $http.get('/api/refresh');
       },
 
       setSpeaker: function(name) {

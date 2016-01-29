@@ -1,35 +1,26 @@
 <html ng-app="shutup">
-<head>
-  <link rel="stylesheet" href="webjars/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="resources/css/meeting.css">
-</head>
-<body>
+  <head>
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="webjars/angular-chart.js/0.8.8/angular-chart.css">
+    <link rel="stylesheet" href="resources/css/meeting.css">
+  </head>
+  <body>
+    <div ng-view>
+      <!--libraries-->
+      <script type="text/javascript" src="webjars/jquery/2.2.0/jquery.min.js"></script>
+      <script type="text/javascript" src="webjars/angularjs/1.4.8/angular.js"></script>
+      <script type="text/javascript" src="webjars/angular-ui-bootstrap/1.0.3/ui-bootstrap-tpls.js"></script>
+      <script type="text/javascript" src="webjars/angularjs/1.4.8/angular-route.js"></script>
+      <script type="text/javascript" src="webjars/angularjs/1.4.8/angular-animate.js"></script>
+      <script type="text/javascript" src="webjars/chartjs/1.0.2/Chart.js"></script>
+      <script type="text/javascript" src="webjars/angular-chart.js/0.8.8/angular-chart.js"></script>
 
-<div ng-view>
-
-
-<!--error handler-->
-<div id="messageContainer" ng-controller="MessageCtrl">
-  <div alert ng-repeat="msg in messages" type="{{msg.severity}}" close="closeMsg($index)" dismiss-on-timeout='5000'
-       ng-animate="{enter: 'fade in', leave: 'fade out'}">
-  </div>
-</div>
-
-<!--libraries-->
-<script type="text/javascript" src="webjars/jquery/2.2.0/jquery.min.js"></script>
-<script type="text/javascript" src="webjars/angularjs/1.4.8/angular.js"></script>
-<script type="text/javascript" src="webjars/angular-ui-bootstrap/1.0.3/ui-bootstrap-tpls.js"></script>
-<script type="text/javascript" src="webjars/angularjs/1.4.8/angular-route.js"></script>
-<script type="text/javascript" src="webjars/angularjs/1.4.8/angular-animate.js"></script>
-
-<!--application-->
-<script src="app/app.module.js"></script>
-<script src="app/app.routes.js"></script>
-<script src="app/message/messageController.js"></script>
-<script src="app/message/messageService.js"></script>
-<script src="app/meeting/meetingController.js"></script>
-<script src="app/meeting/meetingService.js"></script>
-
-</div>
-</body>
+      <!--application-->
+      <script src="app/app.module.js"></script>
+      <script src="app/app.routes.js"></script>
+      <script src="app/meeting/meetingController.js"></script>
+      <script src="app/meeting/meetingService.js"></script>
+      <script src="app/results/resultsController.js"></script>
+    </div>
+  </body>
 </html>

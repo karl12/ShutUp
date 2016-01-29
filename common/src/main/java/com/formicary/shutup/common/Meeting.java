@@ -11,7 +11,7 @@ public class Meeting {
   private Participant host;
   private Participant currentSpeaker;
   @JsonSerialize(using = MapAsListSerialiser.class)
-  @JsonDeserialize(using = ListAsMapDeserialiser.class)
+  @JsonDeserialize(using = ListAsMapDeSerialiser.class)
   private Map<String, Participant> participants = new HashMap<>();
 
   @JsonIgnore

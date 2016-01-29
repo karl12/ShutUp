@@ -1,8 +1,10 @@
-app.controller('MeetingCtrl', ['$scope', '$uibModal', '$interval', '$timeout', 'MeetingService',
-  function ($scope, $uibModal, $interval, $timeout, MeetingService) {
+app.controller('MeetingCtrl', ['$scope', '$interval', '$timeout', 'MeetingService',
+  function ($scope, $interval, $timeout, MeetingService) {
     $scope.value = 0;
     $scope.message = "Lets Begin!";
     $scope.type = 'success';
+    $scope.showBarStatus = true;
+    $scope.showBarText = "Hide bar";
 
     $scope.createMeeting = function(meeting) {
       MeetingService.createMeeting(meeting.hostName).success(function(meeting){
@@ -19,20 +21,19 @@ app.controller('MeetingCtrl', ['$scope', '$uibModal', '$interval', '$timeout', '
 
         $scope.value = Math.floor((numberBored / $scope.meeting.participants.length) * 100);
 
-        if ($scope.value < 25) {
+        if($scope.value < 25 || (!$scope.showBarStatus && $scope.value < 75)) {
           $scope.type = 'success';
           $scope.message = "Yes, go on.";
-        } else if ($scope.value < 50) {
+        } else if($scope.value < 50) {
           $scope.type = 'info';
           $scope.message = "What are you talking about?";
-        } else if ($scope.value < 75) {
+        } else if($scope.value < 75) {
           $scope.type = 'warning';
           $scope.message = "Why are you still talking?";
         } else {
           $scope.type = 'danger';
           $scope.message = "SHUT UP!!";
         }
-
       }
     };
 
@@ -42,6 +43,11 @@ app.controller('MeetingCtrl', ['$scope', '$uibModal', '$interval', '$timeout', '
 
     $scope.setSpeaker = function(name) {
       MeetingService.setSpeaker(name);
+    };
+
+    $scope.showBar = function(){
+      $scope.showBarStatus = !$scope.showBarStatus;
+      $scope.showBarText = $scope.showBarStatus ? "Hide bar" : "Show bar";
     };
 
     $interval(function () {

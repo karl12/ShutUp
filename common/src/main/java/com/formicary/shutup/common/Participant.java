@@ -3,6 +3,7 @@ package com.formicary.shutup.common;
 public class Participant {
   private String name;
   private boolean isBored = false;
+  private int shutupScore;
 
   public Participant(String name) {
     this.name = name;
@@ -27,5 +28,17 @@ public class Participant {
 
   public void setBored(boolean bored) {
     isBored = bored;
+  }
+
+  public int getShutupScore() {
+    return shutupScore;
+  }
+
+  public void shutup() {
+    shutupScore++;
+  }
+
+  public void setShutupScore(int shutupScore) {
+    this.shutupScore = shutupScore;
   }
 }

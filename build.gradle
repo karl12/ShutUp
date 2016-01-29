@@ -18,11 +18,6 @@ subprojects {
 	}
 }
 
-dependencies {
-	//testCompile("org.testng:testng:$testNgVersion")
-	//testCompile("org.mockito:mockito-core:$mockitoVersion")
-}
-
 if (project.hasProperty('prod')) {
 	apply from: 'profile_prod.gradle'
 } else {

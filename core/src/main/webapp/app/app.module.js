@@ -5,11 +5,6 @@ var app = angular.module('shutup',
       'ngRoute',
       'ngAnimate',
       'ui.bootstrap',
-      'ui.bootstrap.tpls'
+      'ui.bootstrap.tpls',
+      'chart.js'
     ]);
-
-app.run(['$rootScope', 'MessageService',
-  function ($rootScope, messageService) {
-    $rootScope.messageService = messageService;
-  }
-]);

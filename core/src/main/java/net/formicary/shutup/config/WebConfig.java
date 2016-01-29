@@ -12,7 +12,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
   static class Routes {
 
     @RequestMapping({
-      "/home"
+      "/meeting"
     })
     public String index() {
       return "forward:/index.html";

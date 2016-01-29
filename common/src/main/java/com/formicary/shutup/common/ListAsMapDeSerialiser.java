@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 
-public class ListAsMapDeserialiser extends JsonDeserializer {
+public class ListAsMapDeSerialiser extends JsonDeserializer {
   @Override
   public Object deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException, JsonProcessingException {
     ObjectCodec oc = jsonParser.getCodec();

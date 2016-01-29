@@ -53,9 +53,10 @@ dependencies {
   compile("org.webjars:angularjs:1.4.8")
   compile("org.webjars:angular-ui-bootstrap:1.0.3")
   compile("org.webjars:bootstrap:3.3.6")
+  compile("org.webjars:angular-chart.js:0.8.8")
+  compile('org.webjars:chartjs:1.0.2')
 
   //test
-  testCompile("org.testng:testng:$testNgVersion")
   testCompile("org.mockito:mockito-core:$mockitoVersion")
   testCompile('junit:junit:4.12')
 
