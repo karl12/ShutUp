@@ -71,8 +71,13 @@ public class MeetingController {
 
   @RequestMapping(method = RequestMethod.POST, path = "/api/reset-bored")
   public  @ResponseBody  ResponseEntity resetScores() {
+    int totalScore = 0;
     for(Map.Entry<String, Participant> entry : meeting.getParticipants().entrySet()) {
+      if(entry.getValue().isBored()) totalScore++;
       entry.getValue().setBored(false);
+    }
+    if(((float)totalScore / meeting.getParticipants().size()) > 0.75f) {
+      meeting.getHost().shutup();
     }
     return ResponseEntity.ok().build();
   }
