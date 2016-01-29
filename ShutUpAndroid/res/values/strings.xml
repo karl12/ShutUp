@@ -7,4 +7,5 @@
   <string name="host_label">Host</string>
   <string name="host_value">10.0.2.2:8083</string>
   <string name="join_button">Join meeting</string>
+  <string name="shutuptitle">Shut Up!</string>
 </resources>

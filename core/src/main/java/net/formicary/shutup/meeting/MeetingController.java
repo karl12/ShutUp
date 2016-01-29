@@ -38,10 +38,10 @@ public class MeetingController {
   ResponseEntity connect(@RequestParam(value = "userName") String userName){
     if(meeting.getParticipants().containsKey(userName) && !meeting.getHost().getName().equals(userName)) {
       return ResponseEntity.badRequest().build();
-    } else {
+    } else if (!meeting.getHost().getName().equals(userName)) {
       meeting.getParticipants().put(userName, new Participant(userName));
-      return ResponseEntity.ok(meeting);
     }
+      return ResponseEntity.ok(meeting);
   }
 
   @RequestMapping(method = RequestMethod.POST, path = "/api/set-bored")
@@ -62,9 +62,9 @@ public class MeetingController {
 
   @RequestMapping(method = RequestMethod.POST, path = "/api/set-speaker")
   public @ResponseBody ResponseEntity setSpeaker(@RequestParam(value = "name") String name) {
+    resetScores();
     Participant participant = meeting.getParticipants().get(name);
     meeting.setCurrentSpeaker(participant);
-    resetScores();
     meeting.getEventLog().add(new VoteEvent(participant, 0));
     return ResponseEntity.ok().build();
   }
@@ -77,7 +77,7 @@ public class MeetingController {
       entry.getValue().setBored(false);
     }
     if(((float)totalScore / meeting.getParticipants().size()) > 0.75f) {
-      meeting.getHost().shutup();
+      meeting.getCurrentSpeaker().shutup();
     }
     return ResponseEntity.ok().build();
   }
