@@ -27,7 +27,7 @@ app.controller('MeetingCtrl', ['$scope', '$uibModal', '$interval', '$timeout', '
           $scope.message = "What are you talking about?";
         } else if ($scope.value < 75) {
           $scope.type = 'warning';
-          $scope.message = "Why are you still talking about this?";
+          $scope.message = "Why are you still talking?";
         } else {
           $scope.type = 'danger';
           $scope.message = "SHUT UP!!";
@@ -38,6 +38,10 @@ app.controller('MeetingCtrl', ['$scope', '$uibModal', '$interval', '$timeout', '
 
     $scope.resetBored = function() {
       MeetingService.resetBored();
+    };
+
+    $scope.setSpeaker = function(name) {
+      MeetingService.setSpeaker(name);
     };
 
     $interval(function () {

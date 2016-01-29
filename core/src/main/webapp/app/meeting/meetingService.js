@@ -12,6 +12,15 @@ app.factory('MeetingService', ['$http',
         return $http.get('api/host-connect');
       },
 
+      setSpeaker: function(name) {
+        return $http({
+          url: '/api/set-speaker',
+          method: "POST",
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          data: $.param({'name' : name})
+        });
+      },
+
       createMeeting: function(hostName) {
         return $http({
           url: '/api/create-meeting',
