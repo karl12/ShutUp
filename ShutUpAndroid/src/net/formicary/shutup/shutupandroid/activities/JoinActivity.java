@@ -45,7 +45,7 @@ public class JoinActivity extends Activity {
 
     @Override
     protected void onPostExecute(ResponseEntity response) {
-      if(response != null && response.getStatusCode().name() == "OK") {
+      if(response != null && response.getStatusCode().name().equals("OK")) {
         Intent i = new Intent(getApplicationContext(), VoteActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("userName", name);

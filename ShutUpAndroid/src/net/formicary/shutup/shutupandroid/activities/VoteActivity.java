@@ -11,7 +11,7 @@ import net.formicary.shutup.shutupandroid.R;
 import net.formicary.shutup.shutupandroid.httprequests.RefreshHttpRequestTask;
 import org.springframework.http.ResponseEntity;
 
-public class VoteActivity  extends Activity {
+public class VoteActivity extends Activity {
 
   private final String JOIN_URL = "connect-meeting";
   private final String VOTE_URL = "set-bored";
@@ -34,21 +34,15 @@ public class VoteActivity  extends Activity {
     if(b != null){
       userName = b.getString("userName");
       host = b.getString("host").replace(JOIN_URL, VOTE_URL);
-      startRefresh(host.replace(VOTE_URL, REFRESH_URL));
+      startRefresh(host.replace(VOTE_URL, REFRESH_URL), this);
     }
-
-    button.setOnClickListener(new View.OnClickListener() {
-      public void onClick(View v) {
-        button.setBackgroundResource(R.drawable.button2);
-      }
-    });
   }
 
-  private void startRefresh(final String host) {
+  private void startRefresh(final String host, final Activity activity) {
     refresh = new Runnable() {
       @Override
       public void run() {
-        new RefreshHttpRequestTask(host).execute();
+        new RefreshHttpRequestTask(host, activity).execute();
         handler.postDelayed(refresh, INTERVAL);
       }
     };
@@ -56,6 +50,7 @@ public class VoteActivity  extends Activity {
   }
 
   public void setBored(View view){
+    view.setBackgroundResource(R.drawable.button2);
     new ChangeStatusHttpRequest(userName, host).execute();
   }
 
@@ -67,7 +62,7 @@ public class VoteActivity  extends Activity {
 
     @Override
     protected void onPostExecute(ResponseEntity response) {
-      if(response != null && response.getStatusCode().name() == "OK") {
+      if(response != null && response.getStatusCode().name().equals("OK")) {
         Toast.makeText(getApplicationContext(), "Your vote has been registered", Toast.LENGTH_SHORT).show();
       } else {
         Toast.makeText(getApplicationContext(), "Voting failed. You are not logged in.", Toast.LENGTH_SHORT).show();
