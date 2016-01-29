@@ -14,17 +14,17 @@
       android:text="@string/red_button_text"
       android:id="@+id/redButtonHost"
       android:background="#010000"
-      android:onClick="setBoredParticipant"
+      android:onClick="setBoredHost"
       android:layout_alignParentStart="true" android:layout_alignParentTop="true"
-      android:layout_above="@+id/progressBar"/>
+      android:layout_above="@+id/progressBarHost"/>
     <TextView
       android:layout_width="wrap_content"
-      android:layout_height="50dp"
+      android:layout_height="35dp"
       android:textAppearance="?android:attr/textAppearanceLarge"
-      android:id="@+id/progressText"
+      android:id="@+id/progressTextHost"
       android:layout_alignParentBottom="true"
       android:layout_alignParentStart="true"
-      android:layout_marginBottom="75dp"
+      android:layout_marginBottom="85dp"
       android:layout_alignParentEnd="true"
       android:textColor="#ffffff"
       android:gravity="center"
@@ -34,8 +34,8 @@
       style="?android:attr/progressBarStyleHorizontal"
       android:layout_width="wrap_content"
       android:layout_height="30dp"
-      android:id="@+id/progressBar"
-      android:layout_above="@+id/progressText"
+      android:id="@+id/progressBarHost"
+      android:layout_above="@+id/progressTextHost"
       android:layout_alignParentStart="true"
       android:layout_marginBottom="5dp"
       android:layout_alignParentEnd="true"
@@ -46,9 +46,34 @@
       android:layout_height="wrap_content"
       android:id="@+id/spinner"
       android:layout_alignParentBottom="true"
-      android:layout_alignStart="@+id/progressText"
+      android:layout_alignStart="@+id/progressTextHost"
       android:layout_marginLeft="15dp"
-      android:layout_marginRight="15dp"/>
+      android:layout_marginRight="15dp"
+      android:layout_marginBottom="20dp"
+      android:layout_marginTop="15dp"
+      android:layout_toStartOf="@+id/moveOnButton"/>
+    <Button
+      style="?android:attr/buttonStyleSmall"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:text="Moving on"
+      android:onClick="moveOn"
+      android:id="@+id/moveOnButton"
+      android:background="#3b7ca9"
+      android:layout_alignBottom="@+id/spinner"
+      android:layout_alignEnd="@+id/progressTextHost"/>
+    <Button
+      style="?android:attr/buttonStyleSmall"
+      android:layout_width="wrap_content"
+      android:layout_height="20dp"
+      android:text="Set"
+      android:id="@+id/setButton"
+      android:layout_above="@+id/moveOnButton"
+      android:layout_alignTop="@+id/spinner"
+      android:layout_alignEnd="@+id/moveOnButton"
+      android:layout_toEndOf="@+id/spinner"
+      android:background="#3b7ca9"
+      android:onClick="setSpeaker"/>
   </RelativeLayout>
 </LinearLayout>
 
