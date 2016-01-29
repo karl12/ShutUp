@@ -36,11 +36,11 @@ public class MeetingController {
   @RequestMapping(method = RequestMethod.POST, path = "/api/connect-meeting")
   public @ResponseBody
   ResponseEntity connect(@RequestParam(value = "userName") String userName){
-    if(meeting.getParticipants().containsKey(userName)) {
+    if(meeting.getParticipants().containsKey(userName) && !meeting.getHost().getName().equals(userName)) {
       return ResponseEntity.badRequest().build();
     } else {
       meeting.getParticipants().put(userName, new Participant(userName));
-      return ResponseEntity.ok().build();
+      return ResponseEntity.ok(meeting);
     }
   }
 

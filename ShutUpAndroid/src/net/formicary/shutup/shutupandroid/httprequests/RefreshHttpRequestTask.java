@@ -51,7 +51,7 @@ public class RefreshHttpRequestTask extends AsyncTask<Void, Void, ResponseEntity
   @Override
   protected void onPostExecute(ResponseEntity response) {
     if(response != null && response.getStatusCode().name().equals("OK")) {
-      updateProgressBar((Meeting)response.getBody());
+     updateProgressBar((Meeting)response.getBody());
     }
   }
 
@@ -62,6 +62,14 @@ public class RefreshHttpRequestTask extends AsyncTask<Void, Void, ResponseEntity
       if(participants.get(name).isBored())
         numberBored++;
     }
+    
+    if(numberBored == 0){
+      Button button = (Button) activity.findViewById(R.id.redButton);
+      button.setClickable(true);
+      button.setBackgroundResource(R.drawable.button1);
+      button.setText("Shut Up!");
+    }
+
     double value = Math.floor((numberBored / participants.size()) * 100);
     String message;
     int color;
@@ -86,7 +94,6 @@ public class RefreshHttpRequestTask extends AsyncTask<Void, Void, ResponseEntity
     progressBar.setMax(100);
     progressBar.setProgress((int)value);
     progressBar.getProgressDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
-
   }
 }
 

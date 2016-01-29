@@ -5,6 +5,9 @@ public class Participant {
   private boolean isBored = false;
   private int shutupScore;
 
+  public Participant() {
+  }
+
   public Participant(String name) {
     this.name = name;
   }

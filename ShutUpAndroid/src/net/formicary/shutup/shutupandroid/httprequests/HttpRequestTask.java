@@ -34,7 +34,6 @@ public abstract class HttpRequestTask extends AsyncTask<Void, Void, ResponseEnti
       RestTemplate restTemplate = new RestTemplate();
       restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
       restTemplate.getMessageConverters().add(new FormHttpMessageConverter());
-
       ResponseEntity response = restTemplate.postForEntity(host, request, ResponseEntity.class);
       return response;
     } catch(Exception e) {

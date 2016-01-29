@@ -15,5 +15,8 @@
     <activity android:name=".activities.VoteActivity"
               android:label="ShutUpAndroid"
               android:parentActivityName=".activities.JoinActivity" />
+    <activity android:name=".activities.HostActivity"
+              android:label="ShutUpAndroid"
+              android:parentActivityName=".activities.JoinActivity" />
   </application>
 </manifest>

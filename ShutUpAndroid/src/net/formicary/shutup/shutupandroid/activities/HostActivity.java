@@ -6,10 +6,10 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import net.formicary.shutup.shutupandroid.R;
-import net.formicary.shutup.shutupandroid.httprequests.VoteHttpRequest;
 import net.formicary.shutup.shutupandroid.httprequests.RefreshHttpRequestTask;
+import net.formicary.shutup.shutupandroid.httprequests.VoteHttpRequest;
 
-public class VoteActivity extends Activity {
+public class HostActivity extends Activity{
 
   private final String JOIN_URL = "connect-meeting";
   private final String VOTE_URL = "set-bored";
@@ -24,15 +24,15 @@ public class VoteActivity extends Activity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.vote);
-    final Button button = (Button) findViewById(R.id.redButton);
+    setContentView(R.layout.host);
+    final Button button = (Button) findViewById(R.id.redButtonHost);
     button.setBackgroundResource(R.drawable.button1);
 
     Bundle b = getIntent().getExtras();
     if(b != null){
       userName = b.getString("userName");
       host = b.getString("host").replace(JOIN_URL, VOTE_URL);
-      startRefresh(host.replace(VOTE_URL, REFRESH_URL), this);
+ //     startRefresh(host.replace(VOTE_URL, REFRESH_URL), this);
     }
   }
 
@@ -47,7 +47,7 @@ public class VoteActivity extends Activity {
     handler.post(refresh);
   }
 
-  public void setBoredParticipant(View view){
+  public void setBoredHost(View view){
     Button button = (Button) view;
     button.setText("");
     button.setBackgroundResource(R.drawable.button2);
