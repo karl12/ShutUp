@@ -46,34 +46,33 @@
       android:layout_height="wrap_content"
       android:id="@+id/spinner"
       android:layout_alignParentBottom="true"
-      android:layout_alignStart="@+id/progressTextHost"
       android:layout_marginLeft="15dp"
       android:layout_marginRight="15dp"
       android:layout_marginBottom="20dp"
       android:layout_marginTop="15dp"
-      android:layout_toStartOf="@+id/moveOnButton"/>
+      android:layout_alignStart="@+id/progressTextHost" android:layout_toStartOf="@+id/moveOnButton"/>
     <Button
       style="?android:attr/buttonStyleSmall"
       android:layout_width="wrap_content"
       android:layout_height="30dp"
-      android:text="Moving on"
+      android:layout_marginBottom="5dp"
+      android:text="Move on"
       android:onClick="moveOn"
       android:id="@+id/moveOnButton"
       android:background="#3b7ca9"
-      android:layout_alignBottom="@+id/spinner"
-      android:layout_alignEnd="@+id/progressTextHost"/>
+      android:layout_alignEnd="@+id/progressTextHost" android:layout_alignParentBottom="true"
+      android:layout_alignTop="@+id/spinner"/>
     <Button
       style="?android:attr/buttonStyleSmall"
       android:layout_width="wrap_content"
       android:layout_height="20dp"
       android:text="Set"
       android:id="@+id/setButton"
-      android:layout_above="@+id/moveOnButton"
-      android:layout_alignTop="@+id/spinner"
-      android:layout_alignEnd="@+id/moveOnButton"
-      android:layout_toEndOf="@+id/spinner"
       android:background="#3b7ca9"
-      android:onClick="setSpeaker"/>
+      android:onClick="setSpeaker"
+      android:layout_alignParentBottom="true" android:layout_alignStart="@+id/spinner"
+      android:layout_alignEnd="@+id/spinner"
+      android:layout_marginBottom="5dp"/>
   </RelativeLayout>
 </LinearLayout>
 
