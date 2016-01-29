@@ -22,17 +22,6 @@ public class MeetingController {
     return ResponseEntity.ok(meeting);
   }
 
-  @RequestMapping(method = RequestMethod.GET, path = "/api/host-connect")
-  public
-  @ResponseBody
-  ResponseEntity hostConnect(@RequestParam(value = "userName") String userName) {
-    if(meeting != null && meeting.getHost().getName().equals(userName)) {
-      return ResponseEntity.ok(meeting);
-    } else {
-      return ResponseEntity.badRequest().build();
-    }
-  }
-
   @RequestMapping(method = RequestMethod.GET, path = "/api/refresh")
   public
   @ResponseBody
@@ -46,7 +35,7 @@ public class MeetingController {
 
   @RequestMapping(method = RequestMethod.POST, path = "/api/connect-meeting")
   public @ResponseBody
-  ResponseEntity clientConnect(@RequestParam(value = "userName") String userName){
+  ResponseEntity connect(@RequestParam(value = "userName") String userName){
     if(meeting.getParticipants().containsKey(userName)) {
       return ResponseEntity.badRequest().build();
     } else {
